@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Panel
+{% endblock title %}
+    
+{% block content %}
+    <h1>Pagina Panel</h1>
+    <h3>Bienvenido: {{user.username}}</h3>
+    {% if nombre %}
+        <h3>Registro exitoso {{ nombre }} {{apellido }}</h3>
+    {% endif %}
+    {% if exito %}
+        <h3>Actualizacion de usuario exitosa</h3>
+    {% endif %}
+    <ul>
+        <li><a href="{% url 'user_app:logout' %}">Cerrar Sesion</a></li>
+        <li><a href="{% url 'user_app:update_pass' %}">Actualizar Contraseña</a></li>
+        <li><a href="{% url 'user_app:update_user' user.id %}">Actualizar Datos</a></li>
+        <li><a href="{% url 'user_app:panel' %}">Lista de Usuarios</a></li>
+    </ul>
+{% endblock content %}

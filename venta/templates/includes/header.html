@@ -1,0 +1,29 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+      <span class="navbar-brand text-light">Bienvenido {{ user.username }}</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            {% if user.rol.nombre == 'Administrador' %}
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'user_app:registro' %}">Crear usuario</a>
+            </li>
+            {% endif %}
+          <li class="nav-item">
+            <a class="nav-link text-light" href="{% url 'user_app:update_user' user.id %}">Actualizar Datos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="{% url 'user_app:update_pass' %}">Cambio Contraseña</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="{% url 'user_app:logout' %}">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ 

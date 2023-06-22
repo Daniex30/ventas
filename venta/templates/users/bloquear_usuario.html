@@ -1,0 +1,32 @@
+{% extends 'baseform.html' %}
+
+{% load static %}
+{% block title %}
+    Bloquear usuario
+{% endblock title %}
+{% block content %}
+<form method="POST" class="text-light">{% csrf_token %}
+    <h2>Si esta seguro que desea
+        {% if user.is_active == True %}
+            Bloquear al usuario {{ user.username }}
+        {% else %}
+            Activar al usuario {{ user.username }}
+        {% endif %}
+    , presione sobre el checkbox</h2>
+    <label>Estado: </label>
+    {{ form.is_active}}
+    <br>
+    
+        {% if user.is_active %} 
+            <button type="submit" class="btn btn-outline-danger">
+            Bloquear
+        </button>
+        {% else %}
+            <button type="submit" class="btn btn-outline-success">
+            Activar
+            </button>
+        {% endif %}
+    </button>
+    <a href="{% url 'user_app:panel'%}" class="btn btn-outline-secondary">Volver</a>
+</form>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'baseform.html' %}
+{% load static %}
+{% block title %}
+    Registro Usuario
+{% endblock title %}
+
+{% block content %}
+    <div class="text-light">
+        <h1 class="text-center">Registro de usuario</h1>
+    </div>
+    <form method="POST" class="row g 3 bg-dark text-light">{% csrf_token %}
+        <div class="col-md-6">
+            <label for="username" class="form-label">Nombre de usuario:</label>
+                {{form.username}}
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email:</label>
+                {{form.email}}
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="nombre"class="form-label">Nombre:</label>
+                {{form.nombre}}
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="apellido" class="form-label">Apellido:</label>
+                {{form.apellido}}
+        </div>
+        <div class="col-md-12 mt-2">
+            <label class="form-label" for="rol">Rol:</label>
+            {{form.rol}}
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="password1" class="form-label">Contraseña:</label>
+            {{form.password1}}
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="password2" class="form-label">Repetir Contraseña:</label>
+            {{form.password2}}
+        </div>
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-outline-primary">Registrar</button>
+            <a href="{% url 'user_app:panel' %}" class="btn btn-outline-secondary">Volver</a>
+        </div>
+    </form>
+    
+{% endblock content %}
+
+

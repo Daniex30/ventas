@@ -1,0 +1,22 @@
+{% extends 'baseform.html' %}
+{% load static %}
+{% block title %}
+    Actualizar contraseña
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-light">Cambio contraseña Usuario: {{ user.username }}</h1>
+<hr>
+<form method="POST" class="row g 3 text-light">{% csrf_token %}
+        <div class="col-md-7">
+        {{ form.as_p}}
+        </div>
+
+    <div>
+        <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+        <a href="{% url 'user_app:panel' %}" class="btn btn-outline-secondary">Volver</a>
+    </div>
+</form>
+{% endblock content %}
+
+
