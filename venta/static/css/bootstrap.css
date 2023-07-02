@@ -12079,3 +12079,11 @@ textarea.form-control-lg {
   }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+.navbar-nav .subitems {
+  display: none;
+}
+
+.navbar-nav .active .subitems {
+  display: block;
+}

@@ -8,7 +8,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView, View, UpdateView, ListView
 from .forms import UserRegisterForm, LoginForm, UpdatePasswordForm, UpdateUserForm
-from . models import User
+from .models import User
+from .mixins import AdministradorPermisoMixin
 
 # Create your views here.
 class UserRegisterView(FormView):
@@ -90,7 +91,8 @@ class ListUserView(ListView):
     template_name = 'users/lista_usuarios.html'
     content_object_name = "users"
     model = User
-    paginate_by = 10
+    paginate_by = 12
+
     
     def get_queryset(self):
         palabra_clave = self.request.GET.get("kword", '')
@@ -113,7 +115,7 @@ class ListUserView(ListView):
         return context
     
         
-class BlockUserView(UpdateView):
+class BlockUserView(AdministradorPermisoMixin, UpdateView):
     template_name = 'users/bloquear_usuario.html'
     model = User
     fields = ["is_active"]

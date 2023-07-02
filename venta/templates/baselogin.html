@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
     <title>{% block title %}{% endblock title %}</title>
 </head>
-<body class="bg-dark">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    {% block content %} {% endblock content%}
+<body>
+    <script src="{% static 'js/bootstrap.js' %}"></script> 
+    {% block content %}
+    
+    {% endblock content%}
+
 </body>
 </html>

@@ -8,7 +8,7 @@
     <div class="text-light">
         <h1 class="text-center">Registro de usuario</h1>
     </div>
-    <form method="POST" class="row g 3 bg-dark text-light">{% csrf_token %}
+    <form method="POST" class="row g 3 bg-secondary text-light">{% csrf_token %}
         <div class="col-md-6">
             <label for="username" class="form-label">Nombre de usuario:</label>
                 {{form.username}}
@@ -37,7 +37,7 @@
             <label for="password2" class="form-label">Repetir Contraseña:</label>
             {{form.password2}}
         </div>
-        <div class="col-12 mt-3">
+        <div class="col-12 mt-3 bg-dark">
             <button type="submit" class="btn btn-outline-primary">Registrar</button>
             <a href="{% url 'user_app:panel' %}" class="btn btn-outline-secondary">Volver</a>
         </div>

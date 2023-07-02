@@ -1,0 +1,19 @@
+{% extends 'baseform.html' %}
+
+{% load static %}
+{% block title %}
+    Actualizar marca
+{% endblock title %}
+{% block content %}
+<h1 class="text-light">Actualizar Marca</h1>
+<form method="POST" class="row g 3 text-light">{% csrf_token %}
+    <div class="col-md-6 mt-3">
+        <label>Marca </label>
+        {{ form.nombre}}
+    </div>
+    <div class="col-md-12 mt-3">
+        <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+        <a href="{% url 'producto_app:listar_marcas'%}" class="btn btn-outline-secondary">Volver</a>
+    </div>
+</form>
+{% endblock content %}

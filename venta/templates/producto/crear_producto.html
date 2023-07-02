@@ -1,0 +1,52 @@
+{% extends 'baseform.html' %}
+{% load static %}
+{% block title %}
+    Crear Producto
+{% endblock title %}
+
+{% block content %}
+    <div class="text-light">
+        <h1 class="text-center">Crear Producto</h1>
+    </div>
+    <form method="POST" class="row g 3 bg-secondary text-light">{% csrf_token %}
+        <div class="col-md-6">
+            <label for="codigo" class="form-label">Codigo Producto:</label>
+                {{form.codigo}}
+        </div>
+        <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre:</label>
+                {{form.nombre}}
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="precio_venta" class="form-label" >Precio de Venta:</label>
+            {{form.precio_venta}}
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="um" class="form-label">Unidad de Medida</label>
+            {{form.unidad_medida}}
+        </div>
+        <div class="col-md-12 mt-2">
+            <label for="descripcion"class="form-label">Descripcion:</label>
+                {{form.descripcion}}
+        </div>
+        <div class="col-md-4 mt-2">
+            <label for="categoria" class="form-label">Categoria:</label>
+            {{form.categoria}}
+        </div>
+
+        <div class="col-md-4 mt-2">
+            <label for="marca" class="form-label">Marca:</label>
+            {{form.marca}}
+        </div>
+        <div class="col-md-4 mt-2">
+            <label for="estado" class="form-label">Estado:</label>
+            {{form.estado}}
+        </div>
+        <div class="col-12 mt-3 bg-dark">
+            <button type="submit" class="btn btn-outline-primary">Guardar</button>
+            <a href="{% url 'producto_app:listar_productos' %}" class="btn btn-outline-secondary">Volver</a>
+        </div>
+    </form>
+    
+{% endblock content %}
+

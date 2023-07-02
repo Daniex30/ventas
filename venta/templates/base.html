@@ -9,6 +9,12 @@
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
-    {% block content %} {% endblock content%}
+    <script src="{% static 'js/bootstrap.js' %}"></script> 
+    {% include 'includes/header.html' %}    
+    {% include 'includes/sidebar.html' %}
+    {% block content %}
+    
+    {% endblock content%}
+
 </body>
 </html>

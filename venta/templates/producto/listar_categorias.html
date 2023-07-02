@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}
+    Lista de categorias
+{% endblock title %}
+{% block content %}
+
+{% if user.rol.nombre == 'Administrador' %}
+    <a href="{% url 'producto_app:crear_categoria' %}">Crear Categoria</a>
+    <h2>Lista de categorias</h2>
+    {% if categorias %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td><a href="{% url 'producto_app:actualizar_categoria' categoria.id %}">{{ categoria.nombre }}</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+       
+    {% else %}
+        <h3>No exiten registros de categoria</h3>
+    {% endif %}
+{% else %}
+    <div class="card text-bg-danger mb-3 text-center" style="max-height: 100%;">
+        <div class="card-body">
+        <h5 class="card-title">Acesso denegado</h5>
+        <p class="card-text">Lo sentimos, no tienes permiso para ver esta vista</p>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

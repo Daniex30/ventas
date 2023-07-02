@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # aplicaciones locales
     'applications.users',
     'applications.home',
+    'applications.producto',
 
 ]
 
